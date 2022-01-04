@@ -8,7 +8,9 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
       t.boolean :public
 
       t.timestamps
+    end
 
+    change_table :recipes do |t|
       add_reference :recipes, :user, null: false, foreign_key: true
     end
   end
