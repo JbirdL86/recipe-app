@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   resources :recipes
   
-  resources :public_recipes, only: :index
+  get '/public_recipes', to: 'public_recipe#index'
 
-  resources :general_public_list, only: :index 
+  get '/general_shopping_list', to: 'general_shopping_list#index'
+   
   # Defines the root path route ("/")
   root "recipes#index"
 end
