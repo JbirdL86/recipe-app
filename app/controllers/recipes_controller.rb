@@ -1,8 +1,7 @@
 class RecipesController < ApplicationController
-  
   def index
     @user = current_user
-    @recipes = Recipe.all
+    @recipes = Recipe.all.order(id: :DESC)
   end
 
   def new
@@ -12,19 +11,17 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    if @recipe.save
-      flash[:succes] = 'Recipe successfully created!'
-      redirect_to recipes_path() 
-    end
+    return unless @recipe.save
+
+    flash[:succes] = 'Recipe successfully created!'
+    redirect_to recipes_path
   end
 
-  def show
-  end
+  def show; end
 
   private
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :coocking_time, :description, :public, :user_id)
   end
-
 end
