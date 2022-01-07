@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+@import '@fortawesome/fontawesome-free';
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
