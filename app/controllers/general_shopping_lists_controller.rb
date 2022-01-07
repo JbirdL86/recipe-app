@@ -1,4 +1,6 @@
 class GeneralShoppingListsController < ApplicationController
+  load_and_authorize_resource
+  
   def index
     @recipes = Recipe.where(user_id: @user.id).includes(recipe_foods: [:food])
     food_items(@recipes)

@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  load_and_authorize_resource
   def new
     @recipe = Recipe.find_by_id(params[:recipe_id])
     filter_unused_foods(@recipe.id)
