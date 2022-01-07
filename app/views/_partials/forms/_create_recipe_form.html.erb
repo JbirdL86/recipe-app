@@ -1,0 +1,14 @@
+<div class="d-flex">
+  <%= form_with url: recipe_recipe_foods_path(@recipe.id), scope: :recipe_food, class: 'd-flex flex-column' do |f| %>
+  <%= f.hidden_field :recipe_id, value: @recipe.id%>
+  <div>
+    <%= f.collection_select :food_id, @foods, :id, :name %>
+    <%= f.label :food%>
+  </div>
+  <div>
+    <%= f.label :quantity%>
+    <%= f.number_field :quantity %>
+  </div>
+  <%= f.submit "Add Ingredient" %>
+<% end %>
+</div>
