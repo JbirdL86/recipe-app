@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.where(user_id: @user.id)
     @bg_index = 0
-    @bg_color = ['gray', 'default']
+    @bg_color = %w[gray default]
   end
 
   def create
@@ -17,8 +17,7 @@ class FoodsController < ApplicationController
     end
   end
 
-  def new
-  end
+  def new; end
 
   def destroy
     food = Food.find_by_id(params[:id])
