@@ -54,6 +54,7 @@ class RecipeFoodsController < ApplicationController
 
       recipe_foods.each_with_index do |recipe_food, index|
         break if recipe_food.recipe_id == recipe_id
+
         @foods << food if index == recipe_foods.length - 1
       end
     end
