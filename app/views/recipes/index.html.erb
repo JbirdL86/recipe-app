@@ -6,13 +6,15 @@
 
 <%= link_to 'New recipe', new_recipe_path %>
 <div class='recipes-container'>
-  <% if @recipes.empty? %>
-    <h2>No recipes to show </h2>
-  <% else %>
-    <% @recipes.each do |recipe| %>
-      <div class='recipe-wrapper'>
-        <%= render 'recipes/recipeshort', recipe: recipe %>
-      </div>
+  <div class='public-recipes-list'>
+    <% if @recipes.empty? %>
+      <h2>No recipes to show </h2>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <div class='recipe-wrapper'>
+          <%= render 'recipes/recipeshort', recipe: recipe %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
