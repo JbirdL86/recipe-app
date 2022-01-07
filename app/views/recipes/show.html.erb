@@ -26,7 +26,7 @@
       <button type="button">Generate shopping list</button>
     <% end %>
 
-    <%= link_to public_recipes_path  do %>
+    <%= link_to new_recipe_recipe_food_path(@recipe.id)  do %>
       <button type="button">Add ingredient</button>
     <% end %>
   </div>
