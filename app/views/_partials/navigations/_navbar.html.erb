@@ -1,0 +1,14 @@
+<div class="d-flex justify-between">
+  <div class="d-flex">
+    <h2>
+      Recipe App
+    </h2>
+    <%= link_to 'Foods',  foods_path %>
+    <%= link_to 'Recipes',  recipes_path %>
+    <%= link_to 'Public Recipes',  public_recipes_path %>
+  </div>
+  <div class="d-flex" >
+    <%= link_to "Shopping List", general_shopping_lists_path %>
+    <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+  </div>
+</div>
