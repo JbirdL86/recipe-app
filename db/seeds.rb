@@ -15,30 +15,21 @@ user_names.each_with_index do |name, index|
   end
 
   recipe1 = Recipe.create(user_id: user.id, name: 'Ceviche', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
-  recipe2 = Recipe.create(user_id: user.id, name: 'Parmesana', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
-  recipe3 = Recipe.create(user_id: user.id, name: 'Ponche', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
+  recipe2 = Recipe.create(user_id: user.id, name: 'Ponche', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
+  recipe3 = Recipe.create(user_id: user.id, name: 'Parmesana', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
 
   (0..4).each do |num|
-    RecipeFood.create(food_id: num, recipe_id: recipe1.id, quantity: rand(1..10))
+    food = Food.where(user_id: user.id, name: food_names[num])
+    RecipeFood.create(food_id: food.ids[0], recipe_id: recipe1.id, quantity: rand(1..10))
   end
 
   (5..10).each do |num|
-    RecipeFood.create(food_id: num, recipe_id: recipe1.id, quantity: rand(1..10))
+    food = Food.where(user_id: user.id, name: food_names[num])
+    RecipeFood.create(food_id: food.ids[0], recipe_id: recipe2.id, quantity: rand(1..10))
   end
 
   (11..13).each do |num|
-    RecipeFood.create(food_id: num, recipe_id: recipe1.id, quantity: rand(1..10))
+    food = Food.where(user_id: user.id, name: food_names[num])
+    RecipeFood.create(food_id: food.ids[0], recipe_id: recipe3.id, quantity: rand(1..10))
   end
 end
-
-
-
-
-
-# t.integer "quantity"
-#     t.datetime "created_at", precision: 6, null: false
-#     t.datetime "updated_at", precision: 6, null: false
-#     t.bigint "recipe_id", null: false
-#     t.bigint "food_id", null: false
-#     t.index ["food_id"], name: "index_recipe_foods_on_food_id"
-#     t.index ["recipe_id"], name: "index_recipe_foods_on_recipe_id"
