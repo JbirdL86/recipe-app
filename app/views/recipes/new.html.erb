@@ -1,5 +1,9 @@
 <div class='post-form-container'>
   <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'recipe-form' do |f| %>
+    <label class="switch">
+      <%= f.check_box :public %>
+      <span class="slider round"></span>
+    </label>
     <div>
       <%= f.label :name, 'Name: ', class: 'recipe-name-label' %>
       <%= f.text_field :name, placeholder: 'Enter the recipe name', required: true, class: 'recipe-name-input' %>
@@ -17,7 +21,6 @@
       <%= f.text_field  :description, placeholder: 'Enter the recipe description', required: true, class: 'recipe-prep-input' %>
     </div>
 
-    <%= f.hidden_field :public, value: false %>
     <%= f.hidden_field :user_id, value: @user.id %>
 
       

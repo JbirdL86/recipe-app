@@ -1,0 +1,6 @@
+<%= form_with url: edit_recipe_path(@recipe.id), method: :get, scope: :recipe, class: 'recipe-form' do |f| %>
+  <label class="switch">
+    <%= f.check_box :public, value: @recipe.public, class: 'recipe-show-toggle-public' %>
+    <span class="slider round"></span>
+  </label>
+<% end %>

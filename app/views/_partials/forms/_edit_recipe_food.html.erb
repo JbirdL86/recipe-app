@@ -1,0 +1,9 @@
+<div class="d-flex">
+  <%= form_with url: recipe_recipe_food_path(@recipe.id, @recipe_food[0].id), method: :patch, scope: :recipe_food, class: 'd-flex flex-column' do |f| %>
+  <div>
+    <%= f.label :quantity%>
+    <%= f.number_field :quantity %>
+  </div>
+  <%= f.submit "Update Quantity" %>
+<% end %>
+</div>

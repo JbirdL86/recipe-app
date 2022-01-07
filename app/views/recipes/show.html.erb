@@ -1,17 +1,18 @@
-<div class='recipe-detail-container'>
-  <div class='detail-wrapper'>
-    <h2>
+<% content_for :head do %>
+  <%= javascript_pack_tag 'togglePublic', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<div class='d-flex flex-column'>
+  <div class='d-flex flex-column'>
+    <h2 class='align-self-center'>
       <%= @recipe.name %>
     </h2>
-    <div class='recipe-detail-header'>
-    <p>
-      Preparation time: <%= @recipe.preparation_time %> hour
-    </p>
-    <div class='recipe-detail-public'>
+
+    <div class="d-flex justify-between">
       <p>
-        Public
+        Preparation time: <%= @recipe.preparation_time %> hour
       </p>
-      <button></button>
+      <%= render partial: '_partials/forms/toggle_public' %>
     </div>
     <p>
       Cooking time: <%= @recipe.cooking_time %> hour
@@ -20,10 +21,16 @@
       <%= @recipe.description %>
     <p>
   </div>
-  <div class='recipe-detail-buttons'>
-    <button>Generate shopping list</button>
-    <button>Add ingridient</button>
+  <div class='d-flex justify-between'>
+    <%= link_to general_shopping_lists_path  do %>
+      <button type="button">Generate shopping list</button>
+    <% end %>
+
+    <%= link_to new_recipe_recipe_food_path(@recipe.id)  do %>
+      <button type="button">Add ingredient</button>
+    <% end %>
   </div>
   <div class='recipe-food-container'>
+    <%= render partial: '_partials/recipe_foods/r_food_table' %>
   </div>
 </div>

@@ -1,0 +1,13 @@
+<h1> Food for Recipe Nº: <%= @recipe.id %> </h1>
+
+<h2> Name: <%= @recipe_food[0].food.name %> </h2>
+
+<h2> Price: <%= @recipe_food[0].food.price %> </h2>
+
+<h2> Quantity: <%= @recipe_food[0].quantity %> </h2>
+
+<h2> Value: $<%= @recipe_food[0].quantity * @recipe_food[0].food.price %> </h2>
+
+<h2> Edit the quantity below: </h2>
+
+<%= render partial: '_partials/forms/edit_recipe_food' %>

@@ -1,4 +1,4 @@
-module RecipeHelper
+module GeneralShoppingListHelper
   def bg_color_selector(index)
     return if index.zero?
 

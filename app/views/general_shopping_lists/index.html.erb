@@ -1,0 +1,15 @@
+<div class="d-flex flex-column">
+  <h1 class="align-self-center">Shopping List</h1>
+  <div>
+    <p>
+      Amount of Food Items to Buy: <%= @food_items %>
+    </p>
+    <p>
+      Total value for all items: $<%= @food_value %>
+    </p>
+  </div>
+
+  <div>
+    <%= render partial: '_partials/general_shopping_lists/general_table' %>
+  </div>
+</div>
