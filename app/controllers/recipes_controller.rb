@@ -1,11 +1,9 @@
 class RecipesController < ApplicationController
   def index
-    @user = current_user
-    @recipes = Recipe.all.order(id: :DESC)
+    @recipes = Recipe.where(user_id: @user.id).order(id: :DESC)
   end
 
   def new
-    @user = current_user
     @recipe = Recipe.new
   end
 
@@ -35,6 +33,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :coocking_time, :description, :public, :user_id)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
   end
 end
