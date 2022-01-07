@@ -33,11 +33,11 @@ class GeneralShoppingListsController < ApplicationController
       recipe.recipe_foods.each do |recipe_food|
         if @foods.include?(recipe_food.food)
           index = @foods.find_index(recipe_food.food)
-          @quantity[index] += recipe_food.quantity 
-       else
-        @foods << recipe_food.food
-        @quantity << recipe_food.quantity
-       end
+          @quantity[index] += recipe_food.quantity
+        else
+          @foods << recipe_food.food
+          @quantity << recipe_food.quantity
+        end
       end
     end
   end
