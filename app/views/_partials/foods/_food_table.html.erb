@@ -1,0 +1,23 @@
+<div class="food-list-container">
+  <div>Food</div>
+  <div>Measurement unit</div>
+  <div>Unit price</div>
+  <div>Actions</div>
+  <% @foods.each_with_index do |food, index| %>
+    <% bg_color_selector(index) %>
+    <div class=<%= "#{@bg_color[@bg_index]}" %>>
+      <%= food.name %>
+    </div>
+    <div class=<%= "#{@bg_color[@bg_index]}" %>>
+      <%= food.measurement_unit %>
+    </div>
+    <div class=<%= "#{@bg_color[@bg_index]}" %>>
+      <%= food.price %>
+    </div>
+    <div class=<%= "#{@bg_color[@bg_index]}" %>>
+      <%= link_to food_path(food.id), method: :delete do %>
+        <button type="button" class="">Remove</button>
+      <% end %>
+    </div>
+  <% end %>
+</div>

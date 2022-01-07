@@ -1,0 +1,9 @@
+<div class="d-flex">
+  <%= form_with url: foods_path, scope: :food, class: 'd-flex flex-column' do |f| %>
+  <%= f.text_field :name, placeholder: 'Pasta, Fruits, Meat...' %>
+  <%= f.text_field :measurement_unit, placeholder: 'Grams, Pounds, Unit...' %>
+  <%= f.number_field :price %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit "Add Food" %>
+<% end %>
+</div>
