@@ -1,0 +1,29 @@
+<div class='recipe-detail-container'>
+  <div class='detail-wrapper'>
+    <h2>
+      <%= @recipe.name %>
+    </h2>
+    <div class='recipe-detail-header'>
+    <p>
+      Preparation time: <%= @recipe.preparation_time %> hour
+    </p>
+    <div class='recipe-detail-public'>
+      <p>
+        Public
+      </p>
+      <button></button>
+    </div>
+    <p>
+      Cooking time: <%= @recipe.cooking_time %> hour
+    </p>
+    <p>
+      <%= @recipe.description %>
+    <p>
+  </div>
+  <div class='recipe-detail-buttons'>
+    <button>Generate shopping list</button>
+    <button>Add ingridient</button>
+  </div>
+  <div class='recipe-food-container'>
+  </div>
+</div>
