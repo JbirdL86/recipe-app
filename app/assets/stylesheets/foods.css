@@ -3,14 +3,3 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.align-items-end {
-  align-items: flex-end;
-}
