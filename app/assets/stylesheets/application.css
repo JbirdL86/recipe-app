@@ -21,3 +21,23 @@
   box-sizing: border-box;
   color: black;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
