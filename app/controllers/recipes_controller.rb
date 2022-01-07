@@ -17,7 +17,21 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  def show; end
+  def show
+    @recipe = Recipe.find_by_id(params[:id])
+    
+  end
+
+  def destroy
+    @recipe = Recipe.find_by_id(params[:id])
+    if @recipe.destroy
+      flash[:success] = 'Post successfully deleted.'
+      redirect_to recipes_path
+    else
+      flash[:alert] = 'Error: post is not deleted.'
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
   private
 
