@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
     return if @user.nil?
+
     @recipes = Recipe.where(user_id: @user.id).order(id: :DESC)
   end
 

@@ -1,6 +1,7 @@
 class RecipeFoodsController < ApplicationController
   def new
     return if @user.nil?
+
     @recipe = Recipe.find_by_id(params[:recipe_id])
     filter_unused_foods(@recipe.id)
     @recipe_foods = RecipeFood.where(recipe_id: @recipe.id).includes(:food)
