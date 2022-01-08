@@ -1,8 +1,10 @@
 class RecipeFoodsController < ApplicationController
   def new
+    return if @user.nil?
+
     @recipe = Recipe.find_by_id(params[:recipe_id])
     filter_unused_foods(@recipe.id)
-    @recipe_foods = RecipeFood.where(recipe_id: @recipe.id).includes(:food)
+    @recipe_foods = RecipeFood.where(recipe_id: @recipe.id)
     @bg_index = 0
     @bg_color = %w[gray default]
   end
@@ -47,7 +49,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def filter_unused_foods(recipe_id)
-    all_foods = Food.where(user_id: @user.id)
+    all_foods = Food.where(user_id: @user.id).includes(:recipe_foods)
     @foods = []
     all_foods.each do |food|
       recipe_foods = food.recipe_foods

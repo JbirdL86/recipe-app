@@ -1,8 +1,14 @@
 
-<div class="foods-container">
+<% if can? :read, Food%>
+  <div class="foods-container">
   <%= link_to new_food_path do %>
     <button type="button" class="">Add Food</button>
   <% end %>
-  
   <%= render partial: '_partials/foods/food_table' %>
-</div>
+  </div>
+<% else %>
+  <div class="foods-container">
+    <h1>Unauthorized access, please login to continue!</h1>
+    <%= link_to 'Login', new_user_session_path %>
+  </div>
+<% end %>

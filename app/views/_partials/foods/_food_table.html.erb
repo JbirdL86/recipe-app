@@ -15,8 +15,10 @@
       <%= food.price %>
     </div>
     <div class=<%= "#{@bg_color[@bg_index]}" %>>
-      <%= link_to food_path(food.id), method: :delete do %>
-        <button type="button" class="">Remove</button>
+      <% if can? :destroy, food %>
+        <%= link_to food_path(food.id), method: :delete do %>
+          <button type="button" class="">Remove</button>
+        <% end %>
       <% end %>
     </div>
   <% end %>

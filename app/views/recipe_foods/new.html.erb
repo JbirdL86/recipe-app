@@ -1,19 +1,25 @@
-
-<div class='new-recipe-food-container'>
-  <h2>Current Food:</h2>
-  <div class='recipe-food-details'>
-    <h2 class='align-self-center'>
-      Select Ingredient for: <%= @recipe.name %> 
-    </h2>
-    <p>
-      By - <%= @user.name%> 
-    </p>
-    <%= render partial: '_partials/forms/create_recipe_form' %>
+<% if can? :read, RecipeFood %>
+  <div class='new-recipe-food-container'>
+    <h2>Current Food:</h2>
+    <div class='recipe-food-details'>
+      <h2 class='align-self-center'>
+        Select Ingredient for: <%= @recipe.name %> 
+      </h2>
+      <p>
+        By - <%= @user.name%> 
+      </p>
+      <%= render partial: '_partials/forms/create_recipe_form' %>
+    </div>
+    <%= link_to new_food_path do %>
+      <button type="button" class="">Add new food</button>
+    <% end %>
+    <div class='recipe-food-container'>
+      <%= render partial: '_partials/recipe_foods/r_food_table' %>
+    </div>
   </div>
-  <%= link_to new_food_path do %>
-    <button type="button" class="">Add new food</button>
-  <% end %>
-  <div class='recipe-food-container'>
-    <%= render partial: '_partials/recipe_foods/r_food_table' %>
+<% else %>
+  <div class='new-recipe-food-container'>
+    <h1>Unauthorized access, please login to continue!</h1>
+    <%= link_to 'Login', new_user_session_path %>
   </div>
-</div>
+<% end %>

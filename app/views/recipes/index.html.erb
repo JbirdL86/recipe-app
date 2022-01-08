@@ -10,7 +10,29 @@
         <div class='recipe-wrapper'>
           <%= render 'recipes/recipeshort', recipe: recipe %>
         </div>
-      <% end %>
-    <% end %>
+
+<% if user_signed_in? %>
+  <div class='recipes-container'>
+    <button class='add-recipe-button'>
+      <%= link_to 'Add new recipe', new_recipe_path %>
+    </button>
+    <div class='recipes-container'>
+       <div class='public-recipes-list'>
+        <% if @recipes.empty? %>
+          <h2>No recipes to show </h2>
+        <% else %>
+          <% @recipes.each do |recipe| %>
+            <div class='recipe-wrapper'>
+              <%= render 'recipes/recipeshort', recipe: recipe %>
+            </div>
+          <% end %>
+        <% end %>
+       </div>
+    </div>
+   </div>
+<% else %>
+  <div class='recipes-container'>
+    <h1>Unauthorized access, please login to continue!</h1>
+    <%= link_to 'Login', new_user_session_path %>
   </div>
-</div>
+<% end %>
