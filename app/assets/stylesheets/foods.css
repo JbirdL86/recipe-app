@@ -1,13 +1,32 @@
 .foods-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 89vh;
+  padding: 2% 2%;
+  background-color: rgba(255, 248, 220, 0.582);
+}
+
+.add-food {
+  align-self: flex-end;
+  width: 15%;
+  margin-bottom: 2%;
+}
+
+.add-food button {
+  margin: 0 auto;
   padding: 2% 2%;
 }
 
 .food-list-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-items: center;
   height: 100%;
+}
+
+.food-list-container div{
+  border: 1px solid black;
+  padding: 1% 2%;
 }
 
 .new-food-container {

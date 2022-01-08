@@ -12,13 +12,11 @@
       <%= food.measurement_unit %>
     </div>
     <div class=<%= "#{@bg_color[@bg_index]}" %>>
-      <%= food.price %>
+      $ <%= food.price %>
     </div>
     <div class=<%= "#{@bg_color[@bg_index]}" %>>
       <% if can? :destroy, food %>
-        <%= link_to food_path(food.id), method: :delete do %>
-          <button type="button" class="">Remove</button>
-        <% end %>
+        <%= link_to 'Delete', food_path(food.id), method: :delete %>
       <% end %>
     </div>
   <% end %>

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgba(146, 210, 212, 0.335);
 }
 
 .public-recipes-list {
@@ -38,6 +39,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2% 2%;
+  width: 100%;
   background-color: rgba(146, 210, 212, 0.335);
 }
 
@@ -47,6 +49,7 @@
 }
 
 .add-recipe-button a {
+  font-weight: 700;
   color: #fff;
   text-decoration: none;
 }
@@ -103,7 +106,6 @@
 .recipe-detail-container div {
   margin-bottom: 2%;
   font-weight: 700;
-  color: #fff;
 }
 
 .recipe-detail-header {
@@ -116,7 +118,7 @@
 
 .recipe-detail-header p {
   font-weight: 700;
-  color: #fff;
+  color: #3e6659;
 }
 
 .recipe-detail-name {
@@ -130,7 +132,7 @@
 }
 
 .recipe-detail-prep p {
-  color: #fff;
+  color: #3e6659;
   font-weight: 700;
 }
 
@@ -161,11 +163,11 @@
 }
 
 .gray p {
-  color: rgba(43, 82, 100, 0.438);
+  color: rgba(43, 82, 100, 1);
 }
 
 .default p {
-  color: rgba(60, 186, 224, 0.568);
+  color: rgba(60, 186, 224, 1);
 }
 
 /* The switch - the box around the slider */

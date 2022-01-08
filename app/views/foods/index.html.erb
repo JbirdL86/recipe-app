@@ -1,7 +1,7 @@
 
 <% if can? :read, Food%>
   <div class="foods-container">
-  <%= link_to new_food_path do %>
+  <%= link_to new_food_path, class: 'add-food' do %>
     <button type="button" class="">Add Food</button>
   <% end %>
     <%= render partial: '_partials/foods/food_table' %>
