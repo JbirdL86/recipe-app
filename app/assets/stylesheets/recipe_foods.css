@@ -51,6 +51,48 @@
 }
 
 .edit-recipe-food-container {
-  background-color: cornsilk;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 248, 220, 0.582);
+  height: 88vh;
+}
 
+.edit-recipe-food-details {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0;
+  color: rgba(43, 82, 100, 0.876);
+}
+
+.edit-recipe-food-details h1 {
+  color: rgba(43, 82, 100, 0.876);
+}
+
+
+.edit-recipe-food-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60%;
+}
+
+.edit-recipe-food-stats p, h2 {
+  color: rgba(43, 82, 100, 0.876);
+}
+
+.edit-recipe-food-quantity {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-recipe-food-form-container {
+  height: 40%;
+}
+.edit-recipe-food-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
 }

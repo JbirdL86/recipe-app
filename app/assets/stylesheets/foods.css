@@ -1,6 +1,31 @@
+.foods-container {
+  height: 89vh;
+  padding: 2% 2%;
+}
+
 .food-list-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   height: 100%;
+}
+
+.new-food-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 89vh;
+}
+
+.new-food-form-container {
+  display: flex;
+  justify-self: center;
+  height: 40%;
+}
+
+.new-food-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
