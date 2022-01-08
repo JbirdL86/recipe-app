@@ -21,11 +21,15 @@
       
     </div>
     <div class=<%= "#{@bg_color[@bg_index]}" %>>
-      <%= link_to  edit_recipe_recipe_food_path(recipe_food.recipe.id, recipe_food.id), method: :get do %>
-        <button type="button" class="">Modify</button>
+      <% if can? :update, @recipe %>
+        <%= link_to  edit_recipe_recipe_food_path(recipe_food.recipe.id, recipe_food.id), method: :get do %>
+          <button type="button" class="">Modify</button>
+        <% end %>
       <% end %>
-      <%= link_to recipe_recipe_food_path(recipe_food.food.id, recipe_food.id), method: :delete do %>
-        <button type="button" class="">Remove</button>
+      <% if can? :destroy, @recipe %>
+        <%= link_to recipe_recipe_food_path(recipe_food.food.id, recipe_food.id), method: :delete do %>
+          <button type="button" class="">Remove</button>
+        <% end %>
       <% end %>
     </div>
   <% end %>

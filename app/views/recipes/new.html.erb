@@ -1,4 +1,4 @@
-<% if can? :read, Recipe && user_signed_in? %>
+<% if user_signed_in? %>
   <div class='post-form-container'>
     <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'recipe-form' do |f| %>
       <label class="switch">

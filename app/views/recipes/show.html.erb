@@ -2,7 +2,7 @@
   <%= javascript_pack_tag 'togglePublic', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
-<% if can? :read, Recipe && user_signed_in? %>
+<% if can? :read, @recipe %>
   <div class='d-flex flex-column'>
     <div class='d-flex flex-column'>
       <h2 class='align-self-center'>
@@ -13,7 +13,14 @@
         <p>
           Preparation time: <%= @recipe.preparation_time %> hour
         </p>
-        <%= render partial: '_partials/forms/toggle_public' %>
+        <% if user_signed_in? %>
+          <%= render partial: '_partials/forms/toggle_public' %>
+        <% else %>
+          <label class="switch">
+            <input type="checkbox" checked/>
+            <span class="slider round"></span>
+          </label>
+        <% end %>
       </div>
       <p>
         Cooking time: <%= @recipe.cooking_time %> hour
@@ -23,12 +30,14 @@
       <p>
     </div>
     <div class='d-flex justify-between'>
-      <%= link_to general_shopping_lists_path  do %>
-        <button type="button">Generate shopping list</button>
-      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to general_shopping_lists_path  do %>
+          <button type="button">Generate shopping list</button>
+        <% end %>
 
-      <%= link_to new_recipe_recipe_food_path(@recipe.id)  do %>
-        <button type="button">Add ingredient</button>
+        <%= link_to new_recipe_recipe_food_path(@recipe.id)  do %>
+          <button type="button">Add ingredient</button>
+        <% end %>
       <% end %>
     </div>
     <div class='recipe-food-container'>
