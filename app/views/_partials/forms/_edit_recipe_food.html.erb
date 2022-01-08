@@ -1,0 +1,9 @@
+<div class='edit-recipe-food-form-container'>
+  <%= form_with url: recipe_recipe_food_path(@recipe.id, @recipe_food[0].id), method: :patch, scope: :recipe_food, class: 'edit-recipe-food-form' do |f| %>
+  <div class='edit-recipe-food-quantity'>
+    <%= f.label :quantity%>
+    <%= f.number_field :quantity, class: 'edit-recipe-food-input' %>
+  </div>
+  <%= f.submit "Update Quantity" %>
+<% end %>
+</div>

@@ -1,0 +1,22 @@
+<% if can? :read, RecipeFood %>
+  <div class='edit-recipe-food-container'>
+    <div class='edit-recipe-food-details'>
+      <h1> Food for Recipe Nº: <%= @recipe.id %> </h1>
+    </div>
+    <div class='edit-recipe-food-stats'>
+      <h2> Name: <%= @recipe_food[0].food.name %> </h2>
+      <p> Price: <%= @recipe_food[0].food.price %> </p>
+      <p> Quantity: <%= @recipe_food[0].quantity %> </p>
+      <p> Value: $<%= @recipe_food[0].quantity * @recipe_food[0].food.price %> </h2>
+      <div class='edit-recipe-food-form'>
+        <h2> Edit the quantity below: </h2>
+        <%= render partial: '_partials/forms/edit_recipe_food' %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class='edit-recipe-food-container'>
+    <h1>Unauthorized access, please login to continue!</h1>
+    <%= link_to 'Login', new_user_session_path %>
+  </div>
+<% end %>

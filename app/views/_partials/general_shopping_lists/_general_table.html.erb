@@ -1,0 +1,22 @@
+<div class="general-list-container">
+  <div>Food</div>
+  <div>Quantity</div>
+  <div>Price</div>
+  <% @foods.each_with_index do |food, index| %>
+    <% bg_color_selector(index) %>
+    <div class=<%= "#{@bg_color[@bg_index]}" %>>
+      <%= food.name %>
+    </div>
+    <div class=<%= "#{@bg_color[@bg_index]}" %>>
+      <p>
+        <%= @quantity[index] %>
+        <%= food.measurement_unit %>
+      </p>
+    </div>
+    <div class=<%= "#{@bg_color[@bg_index]}" %>>
+      <p>
+        $<%= food.price * @quantity[index] %>
+      </p>
+    </div>
+  <% end %>
+</div>

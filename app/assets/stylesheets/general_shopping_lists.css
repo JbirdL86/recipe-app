@@ -1,0 +1,27 @@
+.general-list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.shopping-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 89vh;
+  background-color: rgba(146, 210, 212, 0.335);
+  padding: 2% 2%;
+  width: 100%;
+}
+
+.shopping-list-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2% 2%;
+}
+
+.shopping-list-foods {
+  width: 80%;
+}

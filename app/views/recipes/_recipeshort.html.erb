@@ -1,0 +1,19 @@
+<%= link_to recipe_path(recipe.id) do %>
+  <div class='recipe-short'>
+    <div class='recipe-left'>
+      <div class='recipe-title'>
+        <%= recipe.name %>
+      </div>
+      <div class='recipe-remove'>
+        <% if can? :destroy, recipe %>
+          <%= link_to 'REMOVE', recipe_path(recipe.id), method: 'delete' %>
+        <% end %>
+      </div>
+    </div>
+    <div class='recipe-right'>
+      <p>
+        Description: <%= recipe.description %>
+      </p>
+    </div>
+  </div>
+<% end%>

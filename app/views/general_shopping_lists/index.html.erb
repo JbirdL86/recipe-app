@@ -1,0 +1,20 @@
+<% if can? :read, Food %>
+  <div class="shopping-list-container">
+    <h1>Shopping List</h1>
+    <div class='shopping-list-details'>
+      <p>
+        Amount of Food Items to Buy: <%= @food_items %>
+      </p>
+      <p>
+        Total value for all items: $<%= @food_value %>
+      </p>
+    </div>
+
+    <div class='shopping-list-foods'>
+      <%= render partial: '_partials/general_shopping_lists/general_table' %>
+    </div>
+  </div>
+<% else %>
+  <h1>Unauthorized access, please login to continue!</h1>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>

@@ -1,0 +1,53 @@
+<% content_for :head do %>
+  <%= javascript_pack_tag 'togglePublic', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<% if can? :read, @recipe %>
+  <div class='recipe-detail-container'>
+    <div class='recipe-detail-header'>
+      <h2 class='recipe-detail-name'>
+        <%= @recipe.name %>
+      </h2>
+
+      <div class="recipe-detail-prep">
+        <p>
+          Preparation time: <%= @recipe.preparation_time %> hour
+        </p>
+        <% if user_signed_in? %>
+          <div class='recipe-detail-public'>
+            <p>Public</p>
+            <%= render partial: '_partials/forms/toggle_public' %>
+          </div>
+        <% else %>
+          <label class="switch">
+            <input type="checkbox" checked/>
+            <span class="slider round"></span>
+          </label>
+        <% end %>
+      </div>
+      <p>
+        Cooking time: <%= @recipe.cooking_time %> hour
+      </p>
+      <p>
+        <%= @recipe.description %>
+      <p>
+    </div>
+    <div class='recipe-detail-buttons'>
+      <% if user_signed_in? %>
+        <%= link_to general_shopping_lists_path  do %>
+          <button type="button" class='detail-button'>Generate shopping list</button>
+        <% end %>
+
+        <%= link_to new_recipe_recipe_food_path(@recipe.id)  do %>
+          <button type="button" class='detail-button'>Add ingredient</button>
+        <% end %>
+      <% end %>
+    </div>
+    <div class='recipe-food-container'>
+      <%= render partial: '_partials/recipe_foods/r_food_table' %>
+    </div>
+  </div>
+<% else %>
+  <h1>Unauthorized access, please login to continue!</h1>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>

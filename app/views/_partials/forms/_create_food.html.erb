@@ -1,0 +1,12 @@
+<div class="new-food-form-container">
+  <%= form_with url: foods_path, scope: :food, class: 'new-food-form' do |f| %>
+  <%= f.label :food %>
+  <%= f.text_field :name, placeholder: 'Pasta, Fruits, Meat...' %>
+  <%= f.label 'Quantity in grams' %>
+  <%= f.text_field :measurement_unit, placeholder: 'Grams, Pounds, Unit...' %>
+  <%= f.label 'Price' %>
+  <%= f.number_field :price %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit "Add Food" %>
+<% end %>
+</div>

@@ -1,0 +1,13 @@
+
+<% if can? :read, Food %>
+  <div class='new-food-container'>
+    <h1>New Food:</h1>
+
+    <%= render partial:'_partials/forms/create_food' %>
+  </div>
+<% else %>
+  <div class='new-food-container'>
+    <h1>Unauthorized access, please login to continue!</h1>
+    <%= link_to 'Login', new_user_session_path %>
+  </div>
+<% end %>

@@ -1,0 +1,58 @@
+.foods-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 89vh;
+  padding: 2% 2%;
+  background-color: rgba(255, 248, 220, 0.582);
+}
+
+.add-food {
+  align-self: flex-end;
+  width: 15%;
+  margin-bottom: 2%;
+}
+
+.add-food button {
+  margin: 0 auto;
+  padding: 2% 2%;
+}
+
+.food-list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 100%;
+}
+
+.food-list-container div {
+  border: 1px solid black;
+  padding: 1% 2%;
+}
+
+.new-food-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 89vh;
+}
+
+.new-food-form-container {
+  display: flex;
+  justify-self: center;
+  height: 40%;
+}
+
+.new-food-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gray {
+  color: rgba(43, 82, 100, 1);
+}
+
+.default {
+  color: rgba(60, 186, 224, 1);
+}
