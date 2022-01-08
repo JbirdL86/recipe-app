@@ -72,6 +72,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.3)
+    cancancan (3.3.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -258,6 +259,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bullet
   byebug
+  cancancan
   capybara (>= 3.26)
   devise
   jbuilder (~> 2.7)
