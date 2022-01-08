@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  load_and_authorize_resource
   def index
+    return if @user.nil?
     @recipes = Recipe.where(user_id: @user.id).order(id: :DESC)
   end
 

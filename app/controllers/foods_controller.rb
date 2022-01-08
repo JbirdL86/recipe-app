@@ -1,7 +1,6 @@
 class FoodsController < ApplicationController
-  load_and_authorize_resource
-  
   def index
+    return if @user.nil?
     @foods = Food.where(user_id: @user.id)
     @bg_index = 0
     @bg_color = %w[gray default]
