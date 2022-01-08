@@ -1,29 +1,34 @@
-<div class='post-form-container'>
-  <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'recipe-form' do |f| %>
-    <label class="switch">
-      <%= f.check_box :public %>
-      <span class="slider round"></span>
-    </label>
-    <div>
-      <%= f.label :name, 'Name: ', class: 'recipe-name-label' %>
-      <%= f.text_field :name, placeholder: 'Enter the recipe name', required: true, class: 'recipe-name-input' %>
-    </div>
-    <div>
-      <%= f.label :preparation_time, 'Preparation time: ', class: 'recipe-prep-label' %>
-      <%= f.text_field  :preparation_time, placeholder: 'Enter preparation time for the recipe', required: true, class: 'recipe-prep-input' %>
-    </div>
-    <div>
-      <%= f.label :cooking_time, 'Cooking time: ', class: 'recipe-cook-label' %>
-      <%= f.text_field  :cooking_time, placeholder: 'Enter cooking time for the recipe', required: true, class: 'recipe-cook-input' %>
-    </div>
-    <div>
-      <%= f.label :description, 'Description: ', class: 'recipe-description-label' %>
-      <%= f.text_field  :description, placeholder: 'Enter the recipe description', required: true, class: 'recipe-prep-input' %>
-    </div>
+<% if can? :read, Recipe && user_signed_in? %>
+  <div class='post-form-container'>
+    <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'recipe-form' do |f| %>
+      <label class="switch">
+        <%= f.check_box :public %>
+        <span class="slider round"></span>
+      </label>
+      <div>
+        <%= f.label :name, 'Name: ', class: 'recipe-name-label' %>
+        <%= f.text_field :name, placeholder: 'Enter the recipe name', required: true, class: 'recipe-name-input' %>
+      </div>
+      <div>
+        <%= f.label :preparation_time, 'Preparation time: ', class: 'recipe-prep-label' %>
+        <%= f.text_field  :preparation_time, placeholder: 'Enter preparation time for the recipe', required: true, class: 'recipe-prep-input' %>
+      </div>
+      <div>
+        <%= f.label :cooking_time, 'Cooking time: ', class: 'recipe-cook-label' %>
+        <%= f.text_field  :cooking_time, placeholder: 'Enter cooking time for the recipe', required: true, class: 'recipe-cook-input' %>
+      </div>
+      <div>
+        <%= f.label :description, 'Description: ', class: 'recipe-description-label' %>
+        <%= f.text_field  :description, placeholder: 'Enter the recipe description', required: true, class: 'recipe-prep-input' %>
+      </div>
 
-    <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :user_id, value: @user.id %>
 
-      
-    <%= f.submit "Publish", class: 'recipe-submit' %>
-  <% end %>
-</div>
+        
+      <%= f.submit "Publish", class: 'recipe-submit' %>
+    <% end %>
+  </div>
+<% else %>
+  <h1>Unauthorized access, please login to continue!</h1>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>
