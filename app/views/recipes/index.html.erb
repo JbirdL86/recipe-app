@@ -1,9 +1,7 @@
-<h1><%= @user.name %></h1>
-<h2><%= @user.name %></h2>
-<h2>Logged User : <%= @user.name %></h2>
-
-<%= link_to 'New recipe', new_recipe_path %>
 <div class='recipes-container'>
+  <button class='add-recipe-button'>
+    <%= link_to 'Add new recipe', new_recipe_path %>
+  </button>
   <div class='public-recipes-list'>
     <% if @recipes.empty? %>
       <h2>No recipes to show </h2>
