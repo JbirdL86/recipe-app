@@ -8,7 +8,11 @@
     <%= link_to 'Public Recipes',  public_recipes_path %>
   </div>
   <div class="d-flex" >
-    <%= link_to "Shopping List", general_shopping_lists_path %>
-    <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+    <% if user_signed_in? %>
+      <%= link_to "Shopping List", general_shopping_lists_path %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+    <% else %>
+       <%= link_to 'Login', new_user_session_path %>
+    <% end %>
   </div>
 </div>

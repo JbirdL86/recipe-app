@@ -1,17 +1,21 @@
+<% if can? :read, RecipeFood %>
+  <h2>Current Food:</h2>
 
-<h2>Current Food:</h2>
-
-<div class='d-flex flex-column'>
   <div class='d-flex flex-column'>
-    <h2 class='align-self-center'>
-      Select Ingredient for: <%= @recipe.name %>, by - <%= @user.name%>  
-    </h2>
-    <%= render partial: '_partials/forms/create_recipe_form' %>
+    <div class='d-flex flex-column'>
+      <h2 class='align-self-center'>
+        Select Ingredient for: <%= @recipe.name %>, by - <%= @user.name%>  
+      </h2>
+      <%= render partial: '_partials/forms/create_recipe_form' %>
+    </div>
+    <%= link_to new_food_path do %>
+      <button type="button" class="">Add new food</button>
+    <% end %>
+    <div class='recipe-food-container'>
+      <%= render partial: '_partials/recipe_foods/r_food_table' %>
+    </div>
   </div>
-  <%= link_to new_food_path do %>
-    <button type="button" class="">Add new food</button>
-  <% end %>
-  <div class='recipe-food-container'>
-    <%= render partial: '_partials/recipe_foods/r_food_table' %>
-  </div>
-</div>
+<% else %>
+  <h1>Unauthorized access, please login to continue!</h1>
+<%= link_to 'Login', new_user_session_path %>
+<% end %>
