@@ -1,22 +1,25 @@
-<div class='post-form-container'>
-  <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'recipe-form' do |f| %>
-    <label class="switch">
-      <%= f.check_box :public %>
-      <span class="slider round"></span>
-    </label>
-    <div>
+<div class='new-recipe-form-container'>
+  <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'new-recipe-form' do |f| %>
+    <div class='recipe-public'>
+      <%= f.label 'Public' %>
+      <label class="switch">
+        <%= f.check_box :public %>
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <div class='recipe-public'>
       <%= f.label :name, 'Name: ', class: 'recipe-name-label' %>
       <%= f.text_field :name, placeholder: 'Enter the recipe name', required: true, class: 'recipe-name-input' %>
     </div>
-    <div>
+    <div class='recipe-public'>
       <%= f.label :preparation_time, 'Preparation time: ', class: 'recipe-prep-label' %>
       <%= f.text_field  :preparation_time, placeholder: 'Enter preparation time for the recipe', required: true, class: 'recipe-prep-input' %>
     </div>
-    <div>
+    <div class='recipe-public'>
       <%= f.label :cooking_time, 'Cooking time: ', class: 'recipe-cook-label' %>
       <%= f.text_field  :cooking_time, placeholder: 'Enter cooking time for the recipe', required: true, class: 'recipe-cook-input' %>
     </div>
-    <div>
+    <div class='recipe-public'>
       <%= f.label :description, 'Description: ', class: 'recipe-description-label' %>
       <%= f.text_field  :description, placeholder: 'Enter the recipe description', required: true, class: 'recipe-prep-input' %>
     </div>
