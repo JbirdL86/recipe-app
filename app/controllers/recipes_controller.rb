@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by_id(params[:id])
-    @recipe_foods = RecipeFood.where(recipe_id: @recipe.id).includes(:food)
+    @recipe_foods = RecipeFood.where(recipe_id: @recipe.id).includes(:food, :recipe)
     @bg_index = 0
     @bg_color = %w[gray default]
   end
