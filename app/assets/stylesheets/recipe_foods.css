@@ -5,10 +5,9 @@
   align-items: center;
   height: 89vh;
   background-color: rgba(255, 248, 220, 0.582);
-
 }
 
-.new-recipe-food-container h2{
+.new-recipe-food-container h2 {
   margin: 2% 0;
   color: rgba(43, 82, 100, 0.876);
 }
@@ -41,7 +40,7 @@
   height: 100%;
 }
 
-.create-recipe-form div{
+.create-recipe-form div {
   display: flex;
   justify-content: space-between;
 }
@@ -70,7 +69,6 @@
   color: rgba(43, 82, 100, 0.876);
 }
 
-
 .edit-recipe-food-stats {
   display: flex;
   flex-direction: column;
@@ -78,7 +76,11 @@
   height: 60%;
 }
 
-.edit-recipe-food-stats p, h2 {
+.edit-recipe-food-stats h2 {
+  color: rgba(43, 82, 100, 0.876);
+}
+
+.edit-recipe-food-stats p {
   color: rgba(43, 82, 100, 0.876);
 }
 
@@ -90,6 +92,7 @@
 .edit-recipe-food-form-container {
   height: 40%;
 }
+
 .edit-recipe-food-form {
   display: flex;
   flex-direction: column;

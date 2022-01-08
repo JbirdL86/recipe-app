@@ -79,7 +79,7 @@
 .recipe-detail-container div {
   margin-bottom: 2%;
   font-weight: 700;
-  color:#fff;
+  color: #fff;
 }
 
 .recipe-detail-header {
@@ -106,7 +106,7 @@
 }
 
 .recipe-detail-prep p {
-  color:#fff;
+  color: #fff;
   font-weight: 700;
 }
 
@@ -141,9 +141,8 @@
 }
 
 .default p {
-  color:rgba(60, 186, 224, 0.568);
+  color: rgba(60, 186, 224, 0.568);
 }
-
 
 /* The switch - the box around the slider */
 .switch {
