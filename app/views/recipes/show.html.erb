@@ -3,18 +3,21 @@
 <% end %>
 
 <% if can? :read, @recipe %>
-  <div class='d-flex flex-column'>
-    <div class='d-flex flex-column'>
-      <h2 class='align-self-center'>
+  <div class='recipe-detail-container'>
+    <div class='recipe-detail-header'>
+      <h2 class='recipe-detail-name'>
         <%= @recipe.name %>
       </h2>
 
-      <div class="d-flex justify-between">
+      <div class="recipe-detail-prep">
         <p>
           Preparation time: <%= @recipe.preparation_time %> hour
         </p>
         <% if user_signed_in? %>
-          <%= render partial: '_partials/forms/toggle_public' %>
+          <div class='recipe-detail-public'>
+            <p>Public</p>
+            <%= render partial: '_partials/forms/toggle_public' %>
+          </div>
         <% else %>
           <label class="switch">
             <input type="checkbox" checked/>
@@ -29,14 +32,14 @@
         <%= @recipe.description %>
       <p>
     </div>
-    <div class='d-flex justify-between'>
+    <div class='recipe-detail-buttons'>
       <% if user_signed_in? %>
         <%= link_to general_shopping_lists_path  do %>
-          <button type="button">Generate shopping list</button>
+          <button type="button" class='detail-button'>Generate shopping list</button>
         <% end %>
 
         <%= link_to new_recipe_recipe_food_path(@recipe.id)  do %>
-          <button type="button">Add ingredient</button>
+          <button type="button" class='detail-button'>Add ingredient</button>
         <% end %>
       <% end %>
     </div>

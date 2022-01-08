@@ -6,7 +6,9 @@
   <% @recipe_foods.each_with_index do |recipe_food, index| %>
     <% bg_color_selector(index) %>
     <div class=<%= "#{@bg_color[@bg_index]}" %>>
-      <%= recipe_food.food.name %>
+      <p>
+        <%= recipe_food.food.name %>
+      </p>
     </div>
     <div class=<%= "#{@bg_color[@bg_index]}" %>>
       <p>
@@ -23,12 +25,12 @@
     <div class=<%= "#{@bg_color[@bg_index]}" %>>
       <% if can? :update, @recipe %>
         <%= link_to  edit_recipe_recipe_food_path(recipe_food.recipe.id, recipe_food.id), method: :get do %>
-          <button type="button" class="">Modify</button>
+          <button type="button" class="detail-foods-button">Modify</button>
         <% end %>
       <% end %>
       <% if can? :destroy, @recipe %>
         <%= link_to recipe_recipe_food_path(recipe_food.food.id, recipe_food.id), method: :delete do %>
-          <button type="button" class="">Remove</button>
+          <button type="button" class="detail-foods-button">Remove</button>
         <% end %>
       <% end %>
     </div>
