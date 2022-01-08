@@ -1,14 +1,19 @@
-<div class='public-recipes-container'>
-  <h2>Public Recipes</h2>
-  <div class='public-recipes-list'>
-    <% if @recipes.empty? %>
-      <h2>No recipes to show </h2>
-    <% else %>
-      <% @recipes.each do |recipe| %>
-        <div class='recipe-wrapper'>
-          <%= render 'public_recipes/public_recipes', recipe: recipe %>
-        </div>
+<% if can? :read, Recipe %>
+  <div class='public-recipes-container'>
+    <h2>Public Recipes</h2>
+    <div class='public-recipes-list'>
+      <% if @recipes.empty? %>
+        <h2>No recipes to show </h2>
+      <% else %>
+        <% @recipes.each do |recipe| %>
+          <div class='recipe-wrapper'>
+            <%= render 'public_recipes/public_recipes', recipe: recipe %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <h1>Unauthorized access, please login to continue!</h1>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>

@@ -5,7 +5,9 @@
         <%= recipe.name %>
       </div>
       <div class='recipe-remove'>
-        <%= link_to 'REMOVE', recipe_path(recipe.id), method: 'delete' %>
+        <% if can? :destroy, recipe %>
+          <%= link_to 'REMOVE', recipe_path(recipe.id), method: 'delete' %>
+        <% end %>
       </div>
     </div>
     <div class='recipe-right'>
