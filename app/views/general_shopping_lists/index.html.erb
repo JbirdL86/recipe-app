@@ -1,7 +1,7 @@
 <% if can? :read, Food %>
-  <div class="d-flex flex-column">
-    <h1 class="align-self-center">Shopping List</h1>
-    <div>
+  <div class="shopping-list-container">
+    <h1>Shopping List</h1>
+    <div class='shopping-list-details'>
       <p>
         Amount of Food Items to Buy: <%= @food_items %>
       </p>
@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <div>
+    <div class='shopping-list-foods'>
       <%= render partial: '_partials/general_shopping_lists/general_table' %>
     </div>
   </div>

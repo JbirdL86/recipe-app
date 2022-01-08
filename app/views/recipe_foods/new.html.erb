@@ -1,11 +1,13 @@
 <% if can? :read, RecipeFood %>
-  <h2>Current Food:</h2>
-
-  <div class='d-flex flex-column'>
-    <div class='d-flex flex-column'>
+  <div class='new-recipe-food-container'>
+    <h2>Current Food:</h2>
+    <div class='recipe-food-details'>
       <h2 class='align-self-center'>
-        Select Ingredient for: <%= @recipe.name %>, by - <%= @user.name%>  
+        Select Ingredient for: <%= @recipe.name %> 
       </h2>
+      <p>
+        By - <%= @user.name%> 
+      </p>
       <%= render partial: '_partials/forms/create_recipe_form' %>
     </div>
     <%= link_to new_food_path do %>
@@ -16,6 +18,8 @@
     </div>
   </div>
 <% else %>
-  <h1>Unauthorized access, please login to continue!</h1>
-<%= link_to 'Login', new_user_session_path %>
+  <div class='new-recipe-food-container'>
+    <h1>Unauthorized access, please login to continue!</h1>
+    <%= link_to 'Login', new_user_session_path %>
+  </div>
 <% end %>

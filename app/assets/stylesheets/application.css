@@ -22,6 +22,7 @@
 
 .d-flex {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .flex-column {
@@ -38,4 +39,41 @@
 
 .justify-between {
   justify-content: space-between;
+}
+
+.nav-bar {
+  background-color: rgba(131, 192, 172, 0.89);
+  align-items: center;
+  padding: 1% 2%;
+}
+
+.nav-left {
+  flex-direction: column;
+  width: 40%;
+}
+
+.nav-left h2 {
+  color: rgba(43, 82, 100, 0.876);
+}
+
+.nav-links {
+  justify-content: space-between;
+  margin-top: 4%;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+.nav-right {
+  width: 30%;
+  justify-content: space-between;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
 }
