@@ -9,6 +9,30 @@
   width: 90%;
 }
 
+.new-recipe-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 2%;
+  height: 89vh;
+  background-color: rgba(255, 248, 220, 0.582);
+}
+
+.new-recipe-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60%;
+  width: 60%;
+}
+
+.recipe-public {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .recipes-container {
   display: flex;
   flex-direction: column;
