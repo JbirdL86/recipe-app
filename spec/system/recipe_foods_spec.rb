@@ -34,7 +34,7 @@ describe 'RecipeFoods routes when', type: :feature do
       init_seed
       @user = User.where(email: 'foo0@foo.com')[0]
     end
-    
+
     it 'shouldnt render edit view' do
       recipe = Recipe.where(user_id: @user.id).limit(1)[0]
       recipe_food = RecipeFood.where(recipe_id: recipe.id).limit(1)[0]

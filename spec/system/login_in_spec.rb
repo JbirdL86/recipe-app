@@ -16,7 +16,7 @@ describe 'the signin process', type: :feature do
         fill_in 'user_password', with: 'admin123'
       end
       click_button 'Log in'
-      expect(page).to have_content "Add new recipe"
+      expect(page).to have_content 'Add new recipe'
     end
 
     it 'redirects to root' do

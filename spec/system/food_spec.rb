@@ -17,12 +17,12 @@ describe 'Food routes when', type: :feature do
 
     it 'should render index view' do
       visit foods_path
-      expect(page).to have_content "#{Food.where(user_id: @user.id).limit(1).name}"
+      expect(page).to have_content Food.where(user_id: @user.id).limit(1).name.to_s
     end
 
     it 'should render new view' do
       visit new_food_path
-      expect(page).to have_content "New Food:"
+      expect(page).to have_content 'New Food:'
     end
   end
 

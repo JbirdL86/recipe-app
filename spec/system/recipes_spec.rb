@@ -17,12 +17,12 @@ describe 'Recipe routes when', type: :feature do
 
     it 'should render index view' do
       visit recipes_path
-      expect(page).to have_content "Add new recipe"
+      expect(page).to have_content 'Add new recipe'
     end
 
     it 'should render new view' do
       visit new_recipe_path
-      expect(page).to have_content "Description"
+      expect(page).to have_content 'Description'
     end
   end
 

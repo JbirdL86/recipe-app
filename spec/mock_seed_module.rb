@@ -1,16 +1,21 @@
-module MockSeed 
+module MockSeed
   def init_seed
-    user_names = ['Hamza', 'Juan', 'Mateo', 'Laylo', 'Nelsino']
-    food_names = ['Tomato', 'Onion', 'Shrimps', 'Lemon', 'Salt', 'Orange', 'Grape', 'Water', 'Alcohool', 'Watermelon', 'Pitaya', 'Parmesan Cheese', 'Eggplant', 'Some Meat']
+    user_names = %w[Hamza Juan Mateo Laylo Nelsino]
+    food_names = ['Tomato', 'Onion', 'Shrimps', 'Lemon', 'Salt', 'Orange', 'Grape', 'Water', 'Alcohool', 'Watermelon',
+                  'Pitaya', 'Parmesan Cheese', 'Eggplant', 'Some Meat']
     user_names.each_with_index do |name, index|
-      user = User.create(name: name, email: "foo#{index}@foo.com", password: 'admin123', password_confirmation: 'admin123')
+      user = User.create(name: name, email: "foo#{index}@foo.com", password: 'admin123',
+                         password_confirmation: 'admin123')
       food_names.each do |f_name|
-        Food.create(name: f_name, measurement_unit: 'grams', price: rand(3..30), user_id: user.id )
+        Food.create(name: f_name, measurement_unit: 'grams', price: rand(3..30), user_id: user.id)
       end
 
-      recipe1 = Recipe.create(user_id: user.id, name: 'Ceviche', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
-      recipe2 = Recipe.create(user_id: user.id, name: 'Ponche', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
-      recipe3 = Recipe.create(user_id: user.id, name: 'Parmesana', cooking_time: rand(0.2..2.0), preparation_time: rand(0.3..2.3), public: false)
+      recipe1 = Recipe.create(user_id: user.id, name: 'Ceviche', cooking_time: rand(0.2..2.0),
+                              preparation_time: rand(0.3..2.3), public: false)
+      recipe2 = Recipe.create(user_id: user.id, name: 'Ponche', cooking_time: rand(0.2..2.0),
+                              preparation_time: rand(0.3..2.3), public: false)
+      recipe3 = Recipe.create(user_id: user.id, name: 'Parmesana', cooking_time: rand(0.2..2.0),
+                              preparation_time: rand(0.3..2.3), public: false)
 
       (0..4).each do |num|
         food = Food.where(user_id: user.id, name: food_names[num])
