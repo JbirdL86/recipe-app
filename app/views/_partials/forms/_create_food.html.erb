@@ -4,7 +4,7 @@
   <%= f.text_field :name, placeholder: 'Pasta, Fruits, Meat...' %>
   <%= f.label 'Quantity in grams' %>
   <%= f.text_field :measurement_unit, placeholder: 'Grams, Pounds, Unit...' %>
-  <%= f.label 'Enter a number' %>
+  <%= f.label 'Price' %>
   <%= f.number_field :price %>
   <%= f.hidden_field :user_id, value: @user.id %>
   <%= f.submit "Add Food" %>
