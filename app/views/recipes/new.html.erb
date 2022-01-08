@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class='new-recipe-form-container'>
-    <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'recipe-form' do |f| %>
+    <%= form_with url: recipes_path, method: :post, scope: :recipe, class: 'new-recipe-form' do |f| %>
       <div class='recipe-public'>
         <%= f.label 'Public' %>
         <label class="switch">
