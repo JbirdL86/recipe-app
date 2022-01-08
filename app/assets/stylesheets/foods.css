@@ -48,3 +48,11 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.gray {
+  color: rgba(43, 82, 100, 1);
+}
+
+.default {
+  color: rgba(60, 186, 224, 1);
+}
